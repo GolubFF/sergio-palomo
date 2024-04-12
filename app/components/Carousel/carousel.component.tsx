@@ -17,17 +17,17 @@ const Carousel: React.FC<CarouselProps> = ({ data }) => {
     // const [navigate, setNavigate] = useState([])
 
 // построение галереи
-    useEffect(() => {
-        const slidesArr = [data[data.length - 1], ...data, data[0]]
-
-        const gallery = slidesArr.map(() => {
-            return (
-                <span> dsggsgs</span>
-            )
-        })
-
-
-    }, [])
+//     useEffect(() => {
+//         const slidesArr = [data[data.length - 1], ...data, data[0]]
+//
+//         const gallery = slidesArr.map(() => {
+//             return (
+//                 <span> dsggsgs</span>
+//             )
+//         })
+//
+//
+//     }, [])
 
     // useEffect(() => {
     //     const navigateArr = data.map((el, i) => {
@@ -45,30 +45,30 @@ const Carousel: React.FC<CarouselProps> = ({ data }) => {
     //     // setNavigate(navigateArr)
     // }, [offset])
 //  блокирование кнопок
-    useEffect(() => {
-        const timeoutId = setTimeout(() => {
-            setIsTransition(false);
-        }, DURATION);
-        return () => clearTimeout(timeoutId);
-    }, [isTransition]);
+//     useEffect(() => {
+//         const timeoutId = setTimeout(() => {
+//             setIsTransition(false);
+//         }, DURATION);
+//         return () => clearTimeout(timeoutId);
+//     }, [isTransition]);
 
 
-    useEffect(() => {
-        let timeoutId;
-        if(offset === 0) {
-            timeoutId = setTimeout(() => {
-                setDuration(0)
-                setOffset((carousel.length - 2) * 100)
-            }, DURATION)
-        }
-        if(offset === ((carousel.length - 1) * 100)) {
-            timeoutId = setTimeout(() => {
-                setDuration(0)
-                setOffset(100)
-            }, DURATION)
-        }
-        return () => clearTimeout(timeoutId)
-    }, [offset])
+    // useEffect(() => {
+    //     let timeoutId;
+    //     if(offset === 0) {
+    //         timeoutId = setTimeout(() => {
+    //             setDuration(0)
+    //             setOffset((carousel.length - 2) * 100)
+    //         }, DURATION)
+    //     }
+    //     if(offset === ((carousel.length - 1) * 100)) {
+    //         timeoutId = setTimeout(() => {
+    //             setDuration(0)
+    //             setOffset(100)
+    //         }, DURATION)
+    //     }
+    //     return () => clearTimeout(timeoutId)
+    // }, [offset])
 
 
 
