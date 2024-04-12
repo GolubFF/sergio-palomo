@@ -14,7 +14,7 @@ const Carousel: React.FC<CarouselProps> = ({ data }) => {
     const [offset, setOffset] = useState(0)
     const [duration, setDuration] = useState(DURATION)
     const [isTransition, setIsTransition] = useState(false)
-    const [navigate, setNavigate] = useState([])
+    // const [navigate, setNavigate] = useState([])
 
 // построение галереи
     useEffect(() => {
@@ -29,21 +29,21 @@ const Carousel: React.FC<CarouselProps> = ({ data }) => {
 
     }, [])
 
-    useEffect(() => {
-        const navigateArr = data.map((el, i) => {
-            return(
-                <div
-                    key={i+1}
-                    onClick={() => dotClick(i+1)}
-                    className={'w-2 h-auto bg-white rounded-full cursor-pointer'}
-                    style={{
-                        backgroundColor: (offset === (i+1)*100) ? 'rgba(255, 255, 255, 0.8)': 'rgba(255, 255, 255, 0.2)'
-                    }}
-                ></div>
-            )
-        } )
-        setNavigate(navigateArr)
-    }, [offset])
+    // useEffect(() => {
+    //     const navigateArr = data.map((el, i) => {
+    //         return(
+    //             <div
+    //                 key={i+1}
+    //                 onClick={() => dotClick(i+1)}
+    //                 className={'w-2 h-auto bg-white rounded-full cursor-pointer'}
+    //                 style={{
+    //                     backgroundColor: (offset === (i+1)*100) ? 'rgba(255, 255, 255, 0.8)': 'rgba(255, 255, 255, 0.2)'
+    //                 }}
+    //             ></div>
+    //         )
+    //     } )
+    //     // setNavigate(navigateArr)
+    // }, [offset])
 //  блокирование кнопок
     useEffect(() => {
         const timeoutId = setTimeout(() => {
