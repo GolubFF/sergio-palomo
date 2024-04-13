@@ -1,19 +1,19 @@
 'use client'
-import Image from "next/image";
-import React, {useEffect, useState} from "react";
+// import Image from "next/image";
+import React from "react";
 import CarouselProps from "@/app/components/Carousel/carousel.type";
 import SlideElement from "@/app/components/Carousel/slide";
-import {Slide} from "react-slideshow-image";
-const DURATION = 700
-const BUTTON_STYLE = 'p-2 text-2xl text-white cursor-pointer'
+
+// const DURATION = 700
+// const BUTTON_STYLE = 'p-2 text-2xl text-white cursor-pointer'
 
 
 const Carousel: React.FC<CarouselProps> = ({ data }) => {
 
-    const [carousel, setCarousel] = useState([])
-    const [offset, setOffset] = useState(0)
-    const [duration, setDuration] = useState(DURATION)
-    const [isTransition, setIsTransition] = useState(false)
+    // const [carousel, setCarousel] = useState([])
+    // const [offset, setOffset] = useState(0)
+    // const [duration, setDuration] = useState(DURATION)
+    // const [isTransition, setIsTransition] = useState(false)
     // const [navigate, setNavigate] = useState([])
 
 // построение галереи
@@ -73,29 +73,29 @@ const Carousel: React.FC<CarouselProps> = ({ data }) => {
 
 
 // buttons
-    const previousSlide = () => {
-        if(!duration) setDuration(DURATION)
+//     const previousSlide = () => {
+//         if(!duration) setDuration(DURATION)
+//
+//         setIsTransition(true);
+//         if (offset === 0) setOffset(0)
+//         else setOffset(offset - 100)
+//     }
+//     const nextSlide = () => {
+//         if(!duration) setDuration(DURATION)
+//
+//         setIsTransition(true);
+//         if (offset === (carousel.length - 1) * 100) setOffset((carousel.length - 1) * 100)
+//         else setOffset(offset + 100)
+//     }
 
-        setIsTransition(true);
-        if (offset === 0) setOffset(0)
-        else setOffset(offset - 100)
-    }
-    const nextSlide = () => {
-        if(!duration) setDuration(DURATION)
-
-        setIsTransition(true);
-        if (offset === (carousel.length - 1) * 100) setOffset((carousel.length - 1) * 100)
-        else setOffset(offset + 100)
-    }
-
-    function dotClick(key) {
-        setDuration(DURATION)
-        setOffset(key*100)
-    }
+    // function dotClick(key) {
+    //     setDuration(DURATION)
+    //     setOffset(key*100)
+    // }
 
     const transitionStyle = {
-        transition: `transform ${duration}ms`,
-        transform: `translateX(-${offset}%)`
+        transition: `transform ${700}ms`,
+        transform: `translateX(-${100}%)`
     }
 
     return (
