@@ -2,12 +2,8 @@
 import Image from "next/image";
 import React from "react";
 const H2_STYLE = 'text-opacity-10 text-5xl lg:text-[300px] md:text-8xl sm:text-6xl uppercase font-black text-orange-200 select-none'
+import {SlideData} from "@/app/components/Carousel/carousel.props";
 
-interface SlideData {
-    url: string;
-    alt: string;
-    description?: string;
-}
 const SlideElement: React.FC<SlideData> = ({ url, alt, description = ''}) => {
 
     return(

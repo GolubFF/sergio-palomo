@@ -8,7 +8,7 @@ const config: Config = {
   ],
   theme: {
     screens: {
-      'ssm': '390px',
+      'ssm': '360px',
 
       // => @media (min-width: 640px) { ... }
       'sm': '640px',
