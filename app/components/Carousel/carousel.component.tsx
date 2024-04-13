@@ -103,7 +103,7 @@ const Carousel: React.FC<CarouselProps> = () => {
             <div className={'flex transition ease-out'}
                  style={transitionStyle}>
 
-                <SlideElement url={'/cover/shot_1.jpeg'} legend={'shot'}/>
+                <SlideElement url={'/cover/shot_1.jpeg'} alt={'shot'}/>
 
 
 
