@@ -1,4 +1,4 @@
-'use client'
+
 import Image from "next/image";
 import React from "react";
 const H2_STYLE = 'text-opacity-10 text-5xl lg:text-[300px] md:text-8xl sm:text-6xl uppercase font-black text-orange-200 select-none'
