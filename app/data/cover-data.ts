@@ -1,5 +1,3 @@
-'/cover/shot_1.jpeg', '/cover/shot_2.jpeg', '/cover/shot_3.jpeg', '/cover/shot_4.jpeg', '/cover/shot_5.jpeg'
-
 const coverData = [
     {
         id: 1,
