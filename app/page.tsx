@@ -1,12 +1,12 @@
 
 import Image from "next/image";
-import SocialIcons from "@/app/components/social-icons";
-import Logo from "@/app/components/logo";
+// import SocialIcons from "@/app/components/social-icons";
+// import Logo from "@/app/components/logo";
 import Footer from "@/app/components/footer";
 import Header from "@/app/components/header";
-import Slider from "@/app/components/slider";
-import Carousel from "@/app/components/Carousel/carousel.component";
-import coverData from "@/app/data/cover-data";
+// import Slider from "@/app/components/slider";
+// import Carousel from "@/app/components/Carousel/carousel.component";
+// import coverData from "@/app/data/cover-data";
 
 
 export default function Home() {
@@ -17,9 +17,9 @@ export default function Home() {
         <Header/>
 
 
+        <Image src={'/cover/shot_1.jpeg'} alt={'shot'} width={1920} height={1080}/>
 
 
-        <Carousel data={coverData}/>
 
         <Footer/>
     </main>

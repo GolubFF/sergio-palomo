@@ -8,7 +8,7 @@ import SlideElement from "@/app/components/Carousel/slide";
 // const BUTTON_STYLE = 'p-2 text-2xl text-white cursor-pointer'
 
 
-const Carousel: React.FC<CarouselProps> = ({ data }) => {
+const Carousel: React.FC<CarouselProps> = () => {
 
     // const [carousel, setCarousel] = useState([])
     // const [offset, setOffset] = useState(0)
