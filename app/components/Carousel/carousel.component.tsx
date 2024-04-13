@@ -1,14 +1,14 @@
 'use client'
 // import Image from "next/image";
-import React from "react";
-import CarouselProps from "@/app/components/Carousel/carousel.type";
-import SlideElement from "@/app/components/Carousel/slide";
+// import React from "react";
+// import CarouselProps from "@/app/components/Carousel/carousel.type";
+// import SlideElement from "@/app/components/Carousel/slide";
 
 // const DURATION = 700
 // const BUTTON_STYLE = 'p-2 text-2xl text-white cursor-pointer'
 
 
-const Carousel: React.FC<CarouselProps> = () => {
+const Carousel = () => {
 
     // const [carousel, setCarousel] = useState([])
     // const [offset, setOffset] = useState(0)
@@ -99,19 +99,20 @@ const Carousel: React.FC<CarouselProps> = () => {
     }
 
     return (
-        <div className={'overflow-scroll relative'}>
-            <div className={'flex transition ease-out'}
-                 style={transitionStyle}>
-
-                <SlideElement url={'/cover/shot_1.jpeg'} alt={'shot'}/>
-
-
-
-
-
-            </div>
-
-        </div>
+        <></>
+        // <div className={'overflow-scroll relative'}>
+        //     <div className={'flex transition ease-out'}
+        //          style={transitionStyle}>
+        //
+        //         <SlideElement url={'/cover/shot_1.jpeg'} alt={'shot'}/>
+        //
+        //
+        //
+        //
+        //
+        //     </div>
+        //
+        // </div>
     )
 }
 
