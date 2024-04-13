@@ -103,9 +103,9 @@ const Carousel: React.FC<CarouselProps> = ({ data }) => {
             <div className={'flex transition ease-out'}
                  style={transitionStyle}>
 
-                <SlideElement slide={data[0]}/>
-                <SlideElement slide={data[1]}/>
-                <SlideElement slide={data[2]}/>
+                <SlideElement url={'/cover/shot_1.jpeg'} legend={'shot'}/>
+
+
 
 
 
