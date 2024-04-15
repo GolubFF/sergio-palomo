@@ -1,46 +1,100 @@
 'use client'
-import Image from "next/image";
-import { v4 } from "uuid";
+
+
 
 import React, {JSX, useState, useEffect} from "react";
 import {CarouselData, SlideData} from "@/app/components/Carousel/carousel.props";
-// import CarouselProps from "@/app/components/Carousel/carousel.type";
-// import SlideElement from "@/app/components/Carousel/slide";
 
-// const DURATION = 700
-// const BUTTON_STYLE = 'p-2 text-2xl text-white cursor-pointer'
+import SlideElement from "@/app/components/Carousel/slide";
+import {v4} from "uuid";
+import CarouselButton from "@/app/components/Carousel/carusel-button";
 
-
-const Carousel = ({auto = false, data}:CarouselData):JSX.Element => {
+const DURATION = 700
 
 
+
+
+const Carousel = ({auto = false, data}:CarouselData): JSX.Element => {
+
+    const [duration, setDuration] = useState<number>(DURATION)
     const [gallery, setGallery] = useState<JSX.Element[]>([])
+    const [offset, setOffset] = useState<number>(100)
+    const [buttonDisable, setButtonDisable] = useState<boolean>(false)
 
 
 //построение первичной галереи
     useEffect(() => {
         if(auto) console.log(auto)
         const slidesArr: SlideData[] = [data[data.length - 1], ...data, data[0]]
-
         setGallery(
             slidesArr.map((el) => {
                 return (
-                    <div key={v4()}>
-                        <Image  src={el.url} alt={el.alt} width={1920} height={1080} priority/>
-                        <h2>{el.description}</h2>
-                    </div>
-
+                    <SlideElement key={v4()} id={el.id} url={el.url} alt={el.alt} description={el.description}/>
                 )
             })
         )
     }, [])
 
 
+// бесконечность
+    useEffect(() => {
+        let timeoutId: NodeJS.Timeout;
+
+        if(offset === 0) {
+            timeoutId = setTimeout(() => {
+                setDuration(0)
+                setOffset((gallery.length - 2) * 100)
+            }, DURATION)
+        }
+
+        if(offset === ((gallery.length - 1) * 100)) {
+            timeoutId = setTimeout(() => {
+                setDuration(0)
+                setOffset(100)
+            }, DURATION)
+        }
+        return () => {
+            clearTimeout(timeoutId);
+        };
+    }, [offset])
+
+
+// разблокировка кнопок
+    useEffect(() => {
+        const timeoutId: NodeJS.Timeout = setTimeout(() => {
+            setButtonDisable(false);
+         }, DURATION);
+         return () => clearTimeout(timeoutId);
+
+    }, [buttonDisable])
+
+
+
+
+    const arrowClick = (direction: 'prev' | 'next') => {
+        if(!duration) setDuration(DURATION)
+        setButtonDisable(true);
+        direction === 'prev' ? setOffset(offset - 100) : setOffset(offset + 100)
+        console.log(offset)
+
+    }
+
+
 
     return (
-        <>
-            {gallery}
-        </>
+        <div className={'overflow-hidden relative'}>
+            <div className={'flex transition ease-out'}
+                 style={{
+                     transition: `transform ${duration}ms`,
+                     transform: `translateX(-${offset}%)`
+            }}>
+                {gallery}
+            </div>
+            <div className='absolute top-1/2 -translate-y-1/2 h-30 w-full flex justify-between item-center pl-5 pr-5'>
+                <CarouselButton disabled={buttonDisable} direction={"left"} onClick={() => arrowClick('prev')}/>
+                <CarouselButton disabled={buttonDisable} direction={"right"} onClick={() => arrowClick('next')}/>
+            </div>
+        </div>
     )
 }
 
@@ -103,22 +157,7 @@ export default Carousel
 //     }, [isTransition]);
 
 
-// useEffect(() => {
-//     let timeoutId;
-//     if(offset === 0) {
-//         timeoutId = setTimeout(() => {
-//             setDuration(0)
-//             setOffset((carousel.length - 2) * 100)
-//         }, DURATION)
-//     }
-//     if(offset === ((carousel.length - 1) * 100)) {
-//         timeoutId = setTimeout(() => {
-//             setDuration(0)
-//             setOffset(100)
-//         }, DURATION)
-//     }
-//     return () => clearTimeout(timeoutId)
-// }, [offset])
+
 
 
 

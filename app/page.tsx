@@ -15,7 +15,7 @@ export default function Home() {
 
 
   return (
-    <main className="md:container md:border-x-2 mx-auto flex min-h-screen flex-col items-center ">
+    <main className="  mx-auto flex min-h-screen flex-col items-center ">
         <Header/>
 
 

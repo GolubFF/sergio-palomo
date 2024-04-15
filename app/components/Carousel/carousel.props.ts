@@ -1,3 +1,4 @@
+
 export interface SlideData {
     id: number;
     url: string;
@@ -9,3 +10,4 @@ export interface CarouselData {
     auto?: boolean;
     data: SlideData[];
 }
+
